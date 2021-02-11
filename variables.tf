@@ -34,7 +34,7 @@ variable "http_enabled" {
 
 variable "http_redirect" {
   type        = bool
-  default     = false
+  default     = true
   description = "A boolean flag to enable/disable HTTP redirect to HTTPS"
 }
 
@@ -52,7 +52,7 @@ variable "http_ingress_prefix_list_ids" {
 
 variable "certificate_arn" {
   type        = string
-  default     = ""
+  default     = "arn:aws:acm:eu-central-1:648730480972:certificate/45c60404-a0a2-4a96-acf9-0364eb5c0ceb"
   description = "The ARN of the default SSL certificate for HTTPS listener"
 }
 
@@ -64,7 +64,7 @@ variable "https_port" {
 
 variable "https_enabled" {
   type        = bool
-  default     = false
+  default     = true
   description = "A boolean flag to enable/disable HTTPS listener"
 }
 
