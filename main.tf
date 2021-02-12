@@ -39,8 +39,7 @@ resource "aws_security_group_rule" "https_ingress" {
 }
 
 module "access_logs" {
-  source                             = "cydeckt/lb-s3-bucket/aws"
-  version                            = "0.11.3"
+  source                             = "../lb-s3-bucket"
   enabled                            = module.this.enabled && var.access_logs_enabled
   name                               = module.this.name
   namespace                          = module.this.namespace
@@ -85,8 +84,7 @@ resource "aws_lb" "default" {
 }
 
 module "default_target_group_label" {
-  source     = "cloudposse/label/null"
-  version    = "0.24.1"
+  source     = "../null-label"
   attributes = concat(module.this.attributes, ["default"])
   context    = module.this.context
 }
